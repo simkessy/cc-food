@@ -4,7 +4,6 @@ import { useSession } from "next-auth/react";
 
 export const AppBar = () => {
   const { data: session } = useSession();
-  console.log(session);
   return (
     <Box borderStyle="lg">
       <Flex
