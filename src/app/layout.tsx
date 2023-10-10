@@ -5,6 +5,8 @@ import "./globals.css";
 import "gestalt/dist/gestalt.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import AuthProvider from "./context/AuthProvider";
+import { AppBar } from "./components/AppBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +25,10 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-slate-800 text-slate-100 container mx-auto p-4`}
       >
-        {children}
+        <AuthProvider>
+          <AppBar />
+          {children}
+        </AuthProvider>
       </body>
       <Analytics />
     </html>
