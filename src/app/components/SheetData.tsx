@@ -20,7 +20,7 @@ export const SheetData = ({ sheetdata }: Props) => {
       <ul>
         {sheetdata.map((data, index) => (
           <li key={index}>
-            {data}-{index}
+            {index} - {data}
           </li>
         ))}
       </ul>
