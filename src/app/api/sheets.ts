@@ -3,7 +3,7 @@ import 'dotenv/config'
 
 const CREDENTIALS = JSON.parse(process.env.GOOGLE_MADAM_HUNGRY ?? "{}")
 
-type SheetResponse = Array<string>
+export type SheetResponse = Array<string>
 
 export default function getSheetsData():Promise<Array<SheetResponse>> {
     return new Promise((resolve, reject) => {
