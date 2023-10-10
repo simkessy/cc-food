@@ -1,16 +1,29 @@
 "use client";
 
+import { Avatar, Box, Button, Flex } from "gestalt";
 import { signIn, signOut, useSession } from "next-auth/react";
-import GoogleButton from "react-google-button";
 
 export const GoogleLoginButton = () => {
   const { data: session } = useSession();
 
   return (
-    <GoogleButton
-      type="dark"
-      label={session?.user ? "Logout" : "Signin with Google"}
-      onClick={() => (session?.user ? signOut() : signIn("google"))}
-    />
+    <Flex gap={1} alignItems="center">
+      {session && (
+        <Box>
+          <Avatar
+            name="username"
+            src={session.user?.image || undefined}
+            size="md"
+          />
+        </Box>
+      )}
+      <Box>
+        <Button
+          size="md"
+          text={session?.user ? "Logout" : "Signin with Google"}
+          onClick={() => (session?.user ? signOut() : signIn("google"))}
+        />
+      </Box>
+    </Flex>
   );
 };

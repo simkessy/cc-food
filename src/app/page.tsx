@@ -1,16 +1,27 @@
-import getSheetsData from "./api/sheets";
-import { SheetData } from "./components/SheetData";
-import { getServerSession } from "next-auth";
+"use client";
+import { Box, Flex, Heading, Text } from "gestalt";
+import { useSession } from "next-auth/react";
+import { AppBar } from "./components/AppBar";
 
-export default async function Home() {
-  const sheetdata = await getSheetsData();
-  const session = await getServerSession();
-  const user = session?.user?.name;
+export default function Home() {
+  const session = useSession();
+  const user = session.data?.user;
 
   return (
-    <>
-      {user && <h1>Hello {user}</h1>}
-      <SheetData sheetdata={sheetdata} />
-    </>
+    <Box color="default" height="100vh" width="100vw">
+      <Flex height="100%">
+        <Box column={12} padding={6}>
+          {/* Nav bar  */}
+          <Box color="education" borderStyle="lg" fit>
+            {/* Auth button */}
+            <AppBar />
+          </Box>
+          {/* Form body */}
+          <Box color="infoBase" borderStyle="lg" fit>
+            <Text>This is the body contaning the form</Text>
+          </Box>
+        </Box>
+      </Flex>
+    </Box>
   );
 }
