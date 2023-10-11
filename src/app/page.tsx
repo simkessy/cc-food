@@ -78,6 +78,7 @@ export default function Home() {
                   <Divider />
 
                   <Flex>
+                    {/* PAPER SELECTION SIDE */}
                     <Box
                       color="default"
                       padding={2}
@@ -123,6 +124,7 @@ export default function Home() {
                         />
                       </Box>
                     </Box>
+                    {/* MODULE AND SUBMIT */}
                     <Box column={6} borderStyle="lg">
                       <Box
                         padding={8}
@@ -157,8 +159,7 @@ export default function Home() {
                               ]}
                             />
                           </Box>
-                          {/* BUTTON */}
-
+                          {/* Event Buttons */}
                           <Flex direction="row" justifyContent="end">
                             <Box
                               marginEnd={1}
@@ -186,6 +187,15 @@ export default function Home() {
                               />
                             </Box>
                           </Flex>
+                          {/* SUBMIT FORM BUTTON */}
+                          <Box justifyContent="end">
+                            <Button
+                              size="md"
+                              text="Submit Paper"
+                              onClick={() => {}}
+                              disabled={false}
+                            />
+                          </Box>
                         </Flex>
                       </Box>
                     </Box>
