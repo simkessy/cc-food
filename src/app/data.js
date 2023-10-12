@@ -1,4 +1,4 @@
-const data = [
+export const papersData = [
   {
     id: 1,
     assignedTo: "Amanda",
@@ -40,4 +40,19 @@ const data = [
   },
 ];
 
-export default data;
+
+export const impactList = [
+  { label: "Nutritional content", value: "Nutritional content" },
+  {
+    label: "Visual/textural imperfections",
+    value: "Visual/textural imperfections",
+  },
+  { label: "Bad harvest", value: "Bad harvest" },
+  { label: "Range shifts", value: "Range shifts" },
+  { label: "Pests/diseases", value: "Pests/diseases" },
+  { label: "Quantity", value: "Quantity" },
+  { label: "Growth rate", value: "Growth rate" },
+  { label: "decrease yield", value: "decrease yield" },
+  { label: "increase yield", value: "increase yield" },
+  { label: "Add Option", value: "Add Option" },
+];
