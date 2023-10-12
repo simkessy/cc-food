@@ -1,5 +1,5 @@
 "use client";
-import data from "../data";
+import { papersData } from "../data";
 
 import {
   Box,
