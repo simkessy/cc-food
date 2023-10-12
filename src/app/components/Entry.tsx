@@ -178,26 +178,17 @@ export default function Entry() {
               id="food-class"
               label="Class"
               noResultText="Can't find"
-              placeholder="Class"
+              placeholder="(eg fruit, cereals)"
               options={makeMockArray("Class Item", 10000)}
             />
           </Box>
           <Box column={6} padding={1}>
             <ComboBox
-              id="food-category"
-              label="Category"
+              id="food-common-name"
+              label="Common Name"
               noResultText="Can't find"
-              placeholder="Category"
-              options={makeMockArray("Category", 1000)}
-            />
-          </Box>
-          <Box column={6} padding={1}>
-            <ComboBox
-              id="food-group"
-              label="Group"
-              noResultText="Can't find"
-              placeholder="Group"
-              options={makeMockArray("Group", 1000)}
+              placeholder="(eg Apples, Wheat)"
+              options={makeMockArray("Common Name", 1000)}
             />
           </Box>
           <Box column={6} padding={1}>
@@ -206,7 +197,16 @@ export default function Entry() {
               label="Species"
               noResultText="Can't find"
               placeholder="Species"
-              options={makeMockArray("Species")}
+              options={makeMockArray("Species", 1000)}
+            />
+          </Box>
+          <Box column={6} padding={1}>
+            <ComboBox
+              id="food-variety"
+              label="Variety"
+              noResultText="Can't find"
+              placeholder="(within species)"
+              options={makeMockArray("Variety")}
             />
           </Box>
         </Flex>
