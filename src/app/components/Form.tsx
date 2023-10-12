@@ -1,150 +1,105 @@
 "use client";
 import { papersData } from "../data";
-
+import Entry from "./Entry";
 import {
   Box,
   Flex,
   Heading,
-  Text,
-  Divider,
   ActivationCard,
   ComboBox,
   Module,
   Button,
 } from "gestalt";
 
-const Form = () => {
+export default function Form() {
   return (
-    <Box color="infoBase" borderStyle="lg" fit>
-      <Box
-        column={12}
-        paddingX={10}
-        marginBottom={8}
-        display="flex"
-        justifyContent="center"
-      >
-        <Box column={12} smColumn={10} lgColumn={10} color="default">
-          {/* TAKEDOWNFORMS HEADER */}
+    <Box
+      column={12}
+      paddingX={10}
+      marginBottom={8}
+      display="flex"
+      justifyContent="center"
+    >
+      <Box column={12} smColumn={10} lgColumn={10} color="default">
+        <Flex>
+          {/* PAPER SELECTION SIDE */}
           <Box
-            column={12}
-            alignItems="center"
-            direction="column"
-            display="flex"
+            color="warningBase"
             padding={2}
-            marginBottom={4}
+            paddingY={4}
+            column={6}
+            borderStyle="lg"
           >
+            <Heading size="400" color="default" accessibilityLevel={2}>
+              Paper
+            </Heading>
+            <ComboBox
+              id="paper-dropdown"
+              label="Select one of your your assigned papers"
+              options={papersData.map((paper) => ({
+                label: `${paper.id}. ${paper.title}`,
+                subtext: `Journal: ${paper.journal} | DOI: ${paper.doi} | Pages: ${paper.pages}`,
+                value: String(paper.id),
+              }))}
+            />
             <Box
-              display="flex"
-              direction="column"
               column={12}
-              smColumn={10}
-              mdColumn={8}
-              lgColumn={6}
+              display="flex"
+              direction="row"
+              wrap
+              paddingY={2}
               justifyContent="center"
-              alignItems="center"
             >
-              {/* HEADER */}
-              <Heading
-                size="500"
-                align="center"
-                color="default"
-                accessibilityLevel={1}
-              >
-                Climate Change and Foods
-              </Heading>
-              <Box paddingY={1}>
-                <Text size="300" align="center" color={"subtle"}>
-                  We Hungo Fo Real Tho
-                </Text>
-              </Box>
+              <ActivationCard
+                title={`A Global Analysis of Climate Change and the Impacts on Oyster Diseases.`}
+                message="Authors: Okon, Ekemini Moses; Birikorang, Harriet Nketiah; Munir, Mohammad Bodrul; Kari, Zulhisyam Abdul; Téllez-Isaías, Guillermo; Khalifa, Norhan E.; Abdelnour, Sameh A.; Eissa, Moaheda E. H.; Al-Farga, Ammar; Dighiesh, Hagar Sedeek; Eissa, El-Sayed Hemdan"
+                link={{
+                  href: "https://www.mdpi.com/2071-1050/15/17/12775",
+                  label: "Read 250 pages",
+                  accessibilityLabel: "Link to paper",
+                  target: "blank",
+                }}
+                status="notStarted"
+                statusMessage="DOI: 10.3390/su151712775"
+              />
             </Box>
           </Box>
-
-          <Divider />
-
-          <Flex>
-            {/* PAPER SELECTION SIDE */}
+          {/* MODULE AND SUBMIT */}
+          <Box
+            column={12}
+            borderStyle="lg"
+            color="infoWeak"
+            height="100%"
+            width="100%"
+            overflow="scrollX"
+          >
             <Box
-              color="default"
-              padding={2}
-              paddingY={4}
-              column={6}
-              borderStyle="lg"
+              padding={8}
+              height="100%"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
             >
-              <Heading size="400" color="default" accessibilityLevel={2}>
-                Paper
-              </Heading>
-              <ComboBox
-                id="paper-dropdown"
-                label="Select one of your your assigned papers"
-                options={data.map((paper) => ({
-                  label: `${paper.id}. ${paper.title}`,
-                  subtext: `Journal: ${paper.journal} | DOI: ${paper.doi} | Pages: ${paper.pages}`,
-                  value: String(paper.id),
-                }))}
-              />
-              <Box
-                column={12}
-                display="flex"
-                direction="row"
-                wrap
-                paddingY={2}
-                justifyContent="center"
-              >
-                <ActivationCard
-                  title="Title: A Global Analysis of Climate Change and the Impacts on Oyster Diseases"
-                  message="Authors: Okon, Ekemini Moses; Birikorang, Harriet Nketiah; Munir, Mohammad Bodrul; Kari, Zulhisyam Abdul; Téllez-Isaías, Guillermo; Khalifa, Norhan E.; Abdelnour, Sameh A.; Eissa, Moaheda E. H.; Al-Farga, Ammar; Dighiesh, Hagar Sedeek; Eissa, El-Sayed Hemdan"
-                  link={{
-                    href: "https://www.mdpi.com/2071-1050/15/17/12775",
-                    label: "Read 250 pages",
-                    accessibilityLabel: "Link to paper",
-                    target: "blank",
-                  }}
-                  status="notStarted"
-                  statusMessage="DOI: 10.3390/su151712775"
-                />
-              </Box>
-            </Box>
-            {/* MODULE AND SUBMIT */}
-            <Box column={6} borderStyle="lg">
-              <Box
-                padding={8}
-                height="100%"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-              >
-                <Flex direction="column" flex="grow">
+              <Flex direction="column">
+                <Box column={12} padding={2}>
                   {/* MODULE */}
-                  <Box column={12} padding={2}>
-                    <Module.Expandable
-                      id="ModuleExample "
-                      accessibilityExpandLabel="Expand the module"
-                      accessibilityCollapseLabel="Collapse the module"
-                      items={[
-                        {
-                          children: <Text size="200">Children1</Text>,
-                          summary: ["summary1"],
-                          title: "Title1",
-                        },
-                        {
-                          children: <Text size="200">Children2</Text>,
-                          summary: ["summary2"],
-                          title: "Title2",
-                        },
-                        {
-                          children: <Text size="200">Children3</Text>,
-                          summary: ["summary3"],
-                          title: "Title3",
-                        },
-                      ]}
-                    />
-                  </Box>
+                  <Module.Expandable
+                    id="entry-dropdown"
+                    expandedIndex={0}
+                    accessibilityExpandLabel="Expand entries"
+                    accessibilityCollapseLabel="Collapse entries"
+                    items={[
+                      {
+                        children: <Entry />,
+                        title: "Entry # 1",
+                      },
+                    ]}
+                  />
                   {/* Event Buttons */}
                   <Flex direction="row" justifyContent="end">
                     <Box
                       marginEnd={1}
-                      marginTop={8}
+                      marginTop={4}
                       key="remove-btn-"
                       data-test-id="remove-btn"
                     >
@@ -157,30 +112,30 @@ const Form = () => {
                     </Box>
                     <Box
                       marginEnd={1}
-                      marginTop={8}
+                      marginTop={4}
                       key="add-btn"
                       data-test-id="add-btn"
                     >
                       <Button size="md" text="Add Event" onClick={() => {}} />
                     </Box>
                   </Flex>
-                  {/* SUBMIT FORM BUTTON */}
-                  <Box justifyContent="end">
-                    <Button
-                      size="md"
-                      text="Submit Paper"
-                      onClick={() => {}}
-                      disabled={false}
-                    />
-                  </Box>
-                </Flex>
-              </Box>
+                </Box>
+
+                {/* SUBMIT FORM BUTTON */}
+                <Box justifyContent="end" display="flex">
+                  <Button
+                    size="md"
+                    text="Submit Paper"
+                    onClick={() => {}}
+                    disabled={false}
+                    color="red"
+                  />
+                </Box>
+              </Flex>
             </Box>
-          </Flex>
-        </Box>
+          </Box>
+        </Flex>
       </Box>
     </Box>
   );
-};
-
-export default Form;
+}
