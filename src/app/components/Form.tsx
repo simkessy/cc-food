@@ -69,70 +69,61 @@ export default function Form() {
             column={12}
             borderStyle="lg"
             color="infoWeak"
-            height="100%"
-            width="100%"
-            overflow="scrollX"
+            overflow="auto"
+            padding={2}
           >
-            <Box
-              padding={8}
-              height="100%"
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Flex direction="column">
-                <Box column={12} padding={2}>
-                  {/* MODULE */}
-                  <Module.Expandable
-                    id="entry-dropdown"
-                    expandedIndex={0}
-                    accessibilityExpandLabel="Expand entries"
-                    accessibilityCollapseLabel="Collapse entries"
-                    items={[
-                      {
-                        children: <Entry />,
-                        title: "Entry # 1",
-                      },
-                    ]}
-                  />
-                  {/* Event Buttons */}
-                  <Flex direction="row" justifyContent="end">
-                    <Box
-                      marginEnd={1}
-                      marginTop={4}
-                      key="remove-btn-"
-                      data-test-id="remove-btn"
-                    >
-                      <Button
-                        size="md"
-                        text="Remove Event"
-                        onClick={() => {}}
-                        disabled={false}
-                      />
-                    </Box>
-                    <Box
-                      marginEnd={1}
-                      marginTop={4}
-                      key="add-btn"
-                      data-test-id="add-btn"
-                    >
-                      <Button size="md" text="Add Event" onClick={() => {}} />
-                    </Box>
-                  </Flex>
-                </Box>
+            <Flex direction="column">
+              <Box column={12} padding={2}>
+                {/* MODULE */}
+                <Module.Expandable
+                  id="entry-dropdown"
+                  expandedIndex={0}
+                  accessibilityExpandLabel="Expand entries"
+                  accessibilityCollapseLabel="Collapse entries"
+                  items={[
+                    {
+                      children: <Entry />,
+                      title: "Entry # 1",
+                    },
+                  ]}
+                />
+                {/* Event Buttons */}
+                <Flex direction="row" justifyContent="end">
+                  <Box
+                    marginEnd={1}
+                    marginTop={4}
+                    key="remove-btn-"
+                    data-test-id="remove-btn"
+                  >
+                    <Button
+                      size="md"
+                      text="Remove Event"
+                      onClick={() => {}}
+                      disabled={false}
+                    />
+                  </Box>
+                  <Box
+                    marginEnd={1}
+                    marginTop={4}
+                    key="add-btn"
+                    data-test-id="add-btn"
+                  >
+                    <Button size="md" text="Add Event" onClick={() => {}} />
+                  </Box>
+                </Flex>
+              </Box>
 
-                {/* SUBMIT FORM BUTTON */}
-                <Box justifyContent="end" display="flex">
-                  <Button
-                    size="md"
-                    text="Submit Paper"
-                    onClick={() => {}}
-                    disabled={false}
-                    color="red"
-                  />
-                </Box>
-              </Flex>
-            </Box>
+              {/* SUBMIT FORM BUTTON */}
+              <Box justifyContent="end" display="flex">
+                <Button
+                  size="md"
+                  text="Submit Paper"
+                  onClick={() => {}}
+                  disabled={false}
+                  color="red"
+                />
+              </Box>
+            </Flex>
           </Box>
         </Flex>
       </Box>
